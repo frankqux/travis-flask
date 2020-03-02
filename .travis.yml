@@ -12,8 +12,6 @@ install:
   - pipenv install
 
 # Do fake test.
-script:
-  - pipenv check
 
 # Deploy to DH.
 deploy:
