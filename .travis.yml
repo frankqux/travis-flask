@@ -1,20 +1,25 @@
-language:
-  - node_js
+language: python
+python: "3.7"
 
-node_js:
-  - '12'
-
+# virtualenv:
+#   system_site_packages: true
 services:
   - docker
 
+# Install dependencies.
 install:
-  - npm ci
+  - pip install pipenv
+  - pipenv install
 
+# Do fake test.
 script:
-  - npm run test
+  - pipenv check
 
+# Deploy to DH.
 deploy:
   provider: script
   script: bash deploy.sh
   on:
     branch: master
+
+
